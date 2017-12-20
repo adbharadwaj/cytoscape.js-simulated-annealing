@@ -165,7 +165,7 @@ var SALayout = function ( cytoscape ) {
 			*/
 		},
 		SAInitialTemperature: 1000, // Initial temperature
-		SATemperatureDecreaseRate: 0.99, // Rate at which temperature decreases
+		SATemperatureDecreaseRate: 0.75, // Rate at which temperature decreases
 		nodeDistanceFactor: 0.1, // Node distance factor used to compute node distance cost.
 		borderDistanceFactor: 0.1, // Border distance factor used to compute border distance cost.
 		edgeLengthFactor: 0.5, // Edge length factor used to compute edge length cost.
@@ -173,6 +173,7 @@ var SALayout = function ( cytoscape ) {
 		edgeCrossingsFactor: 10, // Edge crossings factor used to compute edge crossings cost.
 		iterations: 2, // Number of simulated annealing iterations
 		steps: 20, // Number of steps per iterations.
+		customEnergyFunction: {} // Contains the custom energy functions defined by the user.
 	};
 
 	var extend = Object.assign || function ( tgt ) {
@@ -237,6 +238,11 @@ var SALayout = function ( cytoscape ) {
 	Layout.prototype.stop = function () {
 		this.trigger( 'layoutstop' );
 
+		return this; // chaining
+	};
+
+	Layout.prototype.addEnergyFunction = function ( name, fn ) {
+		this.options.customEnergyFunction[ name ] = fn;
 		return this; // chaining
 	};
 
@@ -513,7 +519,8 @@ module.exports = function get( cytoscape ) {
 							_edgeCrossingsTemp.data[ edge1.id() ][ edge2.id() ] = 0
 						}
 
-						var bool = _areEdgesCrossing( edge1, edge2 );
+						var bool = _areEdgesCrossing( edge1, edge2 ) ? 1 : 0;
+						// console.log( bool, edge1.id(), edge2.id() );
 
 						_edgeCrossingsTemp.energy = _edgeCrossingsTemp.energy - options.edgeCrossingsFactor * ( _edgeCrossingsTemp.data[ edge2.id() ][ edge1.id() ] - bool );
 
@@ -545,10 +552,13 @@ module.exports = function get( cytoscape ) {
 					}
 				}
 				return Promise.all( willComputeEdgeCrossings ).then( function () {
+					// console.log( _edgeCrossingsTemp.energy );
 					return _edgeCrossingsTemp.energy;
 				} );
 			},
 		};
+
+		EnergyFunctions = _extend( EnergyFunctions, options.customEnergyFunction );
 
 		return SimulatedAnnealing( {
 			initialTemperature: options.SAInitialTemperature,
@@ -614,7 +624,7 @@ module.exports = function get( cytoscape ) {
 
 				for ( var i in EnergyFunctions ) {
 					if ( EnergyFunctions.hasOwnProperty( i ) ) {
-						// console.log(i, EnergyFunctions[i](state));
+						// console.log( i, EnergyFunctions[ i ]( state ) );
 						willComputeEnergyFunctions.push( EnergyFunctions[ i ]( state ) );
 					}
 				}
