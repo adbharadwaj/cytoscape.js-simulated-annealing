@@ -385,11 +385,11 @@ var SALayout = function (cytoscape) {
 		// 	w: 400,
 		// 	h: 300
 		// },
-		onStep:  function (obj) {
-            // do nothing
-        },
+		onStep: function (obj) {
+			// do nothing
+		},
 		zoom: 1,
-        animationDuration: 200,
+		animationDuration: 200,
 		fit: false, // If set to true will move every node even if you move one node, because it is trying to fit the graph.
 		SAInitialTemperature: 100000
 	};
@@ -424,20 +424,31 @@ var SALayout = function (cytoscape) {
 		var nodes = eles.nodes();
 		var edges = eles.edges();
 
-        var bb = options.boundingBox ? options.boundingBox : cy.extent();
-        if( bb.x2 === undefined ){ bb.x2 = bb.x1 + bb.w; }
-        if( bb.w === undefined ){ bb.w = bb.x2 - bb.x1; }
-        if( bb.y2 === undefined ){ bb.y2 = bb.y1 + bb.h; }
-        if( bb.h === undefined ){ bb.h = bb.y2 - bb.y1; }
+		var bb = options.boundingBox ? options.boundingBox : cy.extent();
+		if (bb.x2 === undefined) {
+			bb.x2 = bb.x1 + bb.w;
+		}
+		if (bb.w === undefined) {
+			bb.w = bb.x2 - bb.x1;
+		}
+		if (bb.y2 === undefined) {
+			bb.y2 = bb.y1 + bb.h;
+		}
+		if (bb.h === undefined) {
+			bb.h = bb.y2 - bb.y1;
+		}
 
 		options.boundingBox = bb;
-        options.center = {x: (bb.x1 + bb.x2) / 2, y: (bb.y1 + bb.y2) / 2};
+		options.center = {
+			x: (bb.x1 + bb.x2) / 2,
+			y: (bb.y1 + bb.y2) / 2
+		};
 
 		layout.trigger('layoutready');
 
 		var sa = SAGraph(options);
 		return sa.run().then(function (currentObject) {
-		    layout.trigger('layoutstop');
+			layout.trigger('layoutstop');
 			return layout;
 		});
 	};
