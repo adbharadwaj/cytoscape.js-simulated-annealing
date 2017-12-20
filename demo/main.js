@@ -60,10 +60,13 @@ cy.ready(function () {
     });
     cy.layout({
         name: 'cytoscape.js-simulated-annealing',
+        iterations: 10,
+        steps: 10,
         onStep:  function (obj) {
             $('#infoEnergy').html(obj.energy);
             $('#infoTemp').html(obj.temperature);
             $('#infoSteps').html(obj.steps);
+            $('#infoIterations').html(obj.iterations);
             // console.log(obj);
         }
     }).run()

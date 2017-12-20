@@ -22,7 +22,9 @@
 
         var defaultConfig = {
             initialTemperature: 100,
-            temperatureDecreaseRate: 0.95,
+            temperatureDecreaseRate: 0.99,
+            iterations: 1,
+            steps: 10,
             getInitialState : function (temperature) {
                 return Promise.resolve({
                     value: temperature
@@ -37,7 +39,7 @@
                 return Promise.resolve(Math.abs(state.value));
             },
             terminatingCondition : function (state, temperature) {
-                return temperature === 0 || _currentStep > config.initialTemperature * 1;
+                return temperature === 0 || _currentIteration >= config.iterations;
             },
             decreaseTemperature : function (state, energy, temperature){
                 return temperature * config.temperatureDecreaseRate;
@@ -48,7 +50,7 @@
                     return true;
                 }
 
-                var C = Math.exp(-delta / (temperature*10000));
+                var C = Math.exp(-delta / temperature);
                 var R = Math.random();
 
                 return R < C;
@@ -69,6 +71,7 @@
 
         var _currentState,
             _currentStep,
+            _currentIteration,
             _currentEnergy,
             _currentTemperature;
 
@@ -90,8 +93,7 @@
                             _energy = energy;
                             return config.acceptChange(_currentState, _nextState).then(function(){
                                 _currentStep += 1;
-                                _currentEnergy = energy;
-                                _currentTemperature = config.decreaseTemperature(_currentState, _currentEnergy, _currentTemperature);
+                                _currentEnergy = _energy;
                                 return Promise.resolve();
                             });
                         }
@@ -106,16 +108,29 @@
                         })
                         .then(function(currentEnergy){
                             _currentEnergy = currentEnergy;
-                            _currentStep = 0;
+                            _currentIteration = 0;
                             return Promise.resolve();
                         });
             },
-            simulate: function () {
+            doIteration: function () {
                 var sa = this;
                 return sa.doStep().then(function () {
                     config.onStep(sa.getCurrentObject());
+                    if (_currentStep < config.steps) {
+                        return sa.doIteration();
+                    } else {
+                        return Promise.resolve();
+                    }
+                });
+            },
+            anneal: function () {
+                var sa = this;
+                _currentStep = 0;
+                return sa.doIteration().then(function () {
+                    _currentTemperature = config.decreaseTemperature(_currentState, _currentEnergy, _currentTemperature);
+                    _currentIteration += 1
                     if (!config.terminatingCondition(_currentState, _currentTemperature)) {
-                        return sa.simulate();
+                        return sa.anneal();
                     } else {
                         return sa.getCurrentObject();
                     }
@@ -123,9 +138,8 @@
             },
             run : function () {
                 var sa = this;
-
                 return sa.init().then(function () {
-                    return sa.simulate().then(function(currentObject){
+                    return sa.anneal().then(function(currentObject){
                         return currentObject;
                     })
                 });
@@ -135,7 +149,8 @@
                     state: _currentState,
                     energy: _currentEnergy,
                     temperature: _currentTemperature,
-                    steps: _currentStep
+                    steps: _currentStep,
+                    iterations: _currentIteration
                 };
             }
         };

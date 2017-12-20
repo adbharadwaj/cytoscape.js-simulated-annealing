@@ -28,7 +28,9 @@
 			borderDistanceFactor: 100,
 			edgeLengthFactor: 500,
 			nodeEdgeDistanceFactor: 100,
-			edgeCrossingsFactor: 100000
+			edgeCrossingsFactor: 100000,
+			iterations: 1,
+            steps: 10,
 		};
 
 		var options = _extend(defaultOptions, userOptions);
@@ -292,6 +294,8 @@
 		return SimulatedAnnealing({
 			initialTemperature: options.SAInitialTemperature,
 			temperatureDecreaseRate: options.SATemperatureDecreaseRate,
+			iterations: options.iterations,
+			steps: options.steps,
 			onStep: options.onStep,
 			getInitialState: function () {
 				layout = cy.layout({
@@ -356,35 +360,10 @@
 					}
 				}
 				return Promise.all(willComputeEnergyFunctions).then(function (values) {
-					return Promise.resolve(values.reduce(getSum));
+					return Promise.resolve(values.reduce(getSum)/1000);
 				});
 
 			},
-            acceptChange1 : function (currentState, newState, callback) {
-
-                currentState.nodes('#' + _currentNode.id()).layoutPositions(layout, options, function (ele) {
-        			ele = typeof ele === "object" ? ele : this;
-
-                    var dModel = newState.nodes('#' + _currentNode.id()).position();
-
-        			if (ele == _currentNode) {
-        				return {
-        					x: dModel.x,
-        					y: dModel.y
-        				};
-        			} else {
-        				return {
-                            x: ele.position('x'),
-                            y: ele.position('y')
-                        }
-        			}
-        		});
-
-                layout.pon('layoutstop').then(function (event) {
-                    console.log('acceptChange');
-                    callback();
-                });
-            },
             acceptChange : function (currentState, newState) {
                 return new Promise(function(resolve, reject) {
                     currentState.nodes('#' + _currentNode.id()).layoutPositions(layout, options, function (ele) {

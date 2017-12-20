@@ -391,7 +391,7 @@ var SALayout = function (cytoscape) {
 		zoom: 1,
         animationDuration: 200,
 		fit: false, // If set to true will move every node even if you move one node, because it is trying to fit the graph.
-		SAInitialTemperature: 100
+		SAInitialTemperature: 100000
 	};
 
 	var extend = Object.assign || function (tgt) {
@@ -23442,7 +23442,9 @@ exports.clearImmediate = clearImmediate;
 			borderDistanceFactor: 100,
 			edgeLengthFactor: 500,
 			nodeEdgeDistanceFactor: 100,
-			edgeCrossingsFactor: 100000
+			edgeCrossingsFactor: 100000,
+			iterations: 1,
+            steps: 10,
 		};
 
 		var options = _extend(defaultOptions, userOptions);
@@ -23706,6 +23708,8 @@ exports.clearImmediate = clearImmediate;
 		return SimulatedAnnealing({
 			initialTemperature: options.SAInitialTemperature,
 			temperatureDecreaseRate: options.SATemperatureDecreaseRate,
+			iterations: options.iterations,
+			steps: options.steps,
 			onStep: options.onStep,
 			getInitialState: function () {
 				layout = cy.layout({
@@ -23770,35 +23774,10 @@ exports.clearImmediate = clearImmediate;
 					}
 				}
 				return Promise.all(willComputeEnergyFunctions).then(function (values) {
-					return Promise.resolve(values.reduce(getSum));
+					return Promise.resolve(values.reduce(getSum)/1000);
 				});
 
 			},
-            acceptChange1 : function (currentState, newState, callback) {
-
-                currentState.nodes('#' + _currentNode.id()).layoutPositions(layout, options, function (ele) {
-        			ele = typeof ele === "object" ? ele : this;
-
-                    var dModel = newState.nodes('#' + _currentNode.id()).position();
-
-        			if (ele == _currentNode) {
-        				return {
-        					x: dModel.x,
-        					y: dModel.y
-        				};
-        			} else {
-        				return {
-                            x: ele.position('x'),
-                            y: ele.position('y')
-                        }
-        			}
-        		});
-
-                layout.pon('layoutstop').then(function (event) {
-                    console.log('acceptChange');
-                    callback();
-                });
-            },
             acceptChange : function (currentState, newState) {
                 return new Promise(function(resolve, reject) {
                     currentState.nodes('#' + _currentNode.id()).layoutPositions(layout, options, function (ele) {
@@ -23865,7 +23844,9 @@ exports.clearImmediate = clearImmediate;
 
         var defaultConfig = {
             initialTemperature: 100,
-            temperatureDecreaseRate: 0.95,
+            temperatureDecreaseRate: 0.99,
+            iterations: 1,
+            steps: 10,
             getInitialState : function (temperature) {
                 return Promise.resolve({
                     value: temperature
@@ -23880,7 +23861,7 @@ exports.clearImmediate = clearImmediate;
                 return Promise.resolve(Math.abs(state.value));
             },
             terminatingCondition : function (state, temperature) {
-                return temperature === 0 || _currentStep > config.initialTemperature * 1;
+                return temperature === 0 || _currentIteration >= config.iterations;
             },
             decreaseTemperature : function (state, energy, temperature){
                 return temperature * config.temperatureDecreaseRate;
@@ -23891,7 +23872,7 @@ exports.clearImmediate = clearImmediate;
                     return true;
                 }
 
-                var C = Math.exp(-delta / (temperature*10000));
+                var C = Math.exp(-delta / temperature);
                 var R = Math.random();
 
                 return R < C;
@@ -23912,6 +23893,7 @@ exports.clearImmediate = clearImmediate;
 
         var _currentState,
             _currentStep,
+            _currentIteration,
             _currentEnergy,
             _currentTemperature;
 
@@ -23933,8 +23915,7 @@ exports.clearImmediate = clearImmediate;
                             _energy = energy;
                             return config.acceptChange(_currentState, _nextState).then(function(){
                                 _currentStep += 1;
-                                _currentEnergy = energy;
-                                _currentTemperature = config.decreaseTemperature(_currentState, _currentEnergy, _currentTemperature);
+                                _currentEnergy = _energy;
                                 return Promise.resolve();
                             });
                         }
@@ -23949,16 +23930,29 @@ exports.clearImmediate = clearImmediate;
                         })
                         .then(function(currentEnergy){
                             _currentEnergy = currentEnergy;
-                            _currentStep = 0;
+                            _currentIteration = 0;
                             return Promise.resolve();
                         });
             },
-            simulate: function () {
+            doIteration: function () {
                 var sa = this;
                 return sa.doStep().then(function () {
                     config.onStep(sa.getCurrentObject());
+                    if (_currentStep < config.steps) {
+                        return sa.doIteration();
+                    } else {
+                        return Promise.resolve();
+                    }
+                });
+            },
+            anneal: function () {
+                var sa = this;
+                _currentStep = 0;
+                return sa.doIteration().then(function () {
+                    _currentTemperature = config.decreaseTemperature(_currentState, _currentEnergy, _currentTemperature);
+                    _currentIteration += 1
                     if (!config.terminatingCondition(_currentState, _currentTemperature)) {
-                        return sa.simulate();
+                        return sa.anneal();
                     } else {
                         return sa.getCurrentObject();
                     }
@@ -23966,9 +23960,8 @@ exports.clearImmediate = clearImmediate;
             },
             run : function () {
                 var sa = this;
-
                 return sa.init().then(function () {
-                    return sa.simulate().then(function(currentObject){
+                    return sa.anneal().then(function(currentObject){
                         return currentObject;
                     })
                 });
@@ -23978,7 +23971,8 @@ exports.clearImmediate = clearImmediate;
                     state: _currentState,
                     energy: _currentEnergy,
                     temperature: _currentTemperature,
-                    steps: _currentStep
+                    steps: _currentStep,
+                    iterations: _currentIteration
                 };
             }
         };

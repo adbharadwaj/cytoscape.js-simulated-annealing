@@ -32,7 +32,7 @@ var SALayout = function (cytoscape) {
 		zoom: 1,
         animationDuration: 200,
 		fit: false, // If set to true will move every node even if you move one node, because it is trying to fit the graph.
-		SAInitialTemperature: 100
+		SAInitialTemperature: 100000
 	};
 
 	var extend = Object.assign || function (tgt) {
