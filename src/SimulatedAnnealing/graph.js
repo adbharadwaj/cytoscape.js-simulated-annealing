@@ -291,6 +291,8 @@
 			},
 		};
 
+		EnergyFunctions = _extend( EnergyFunctions, options.customEnergyFunction );
+
 		return SimulatedAnnealing( {
 			initialTemperature: options.SAInitialTemperature,
 			temperatureDecreaseRate: options.SATemperatureDecreaseRate,
@@ -355,7 +357,7 @@
 
 				for ( var i in EnergyFunctions ) {
 					if ( EnergyFunctions.hasOwnProperty( i ) ) {
-						// console.log(i, EnergyFunctions[i](state));
+						// console.log( i, EnergyFunctions[ i ]( state ) );
 						willComputeEnergyFunctions.push( EnergyFunctions[ i ]( state ) );
 					}
 				}

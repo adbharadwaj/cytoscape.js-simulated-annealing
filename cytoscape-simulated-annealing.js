@@ -173,6 +173,7 @@ var SALayout = function ( cytoscape ) {
 		edgeCrossingsFactor: 10, // Edge crossings factor used to compute edge crossings cost.
 		iterations: 2, // Number of simulated annealing iterations
 		steps: 20, // Number of steps per iterations.
+		customEnergyFunction: {} // Contains the custom energy functions defined by the user.
 	};
 
 	var extend = Object.assign || function ( tgt ) {
@@ -237,6 +238,11 @@ var SALayout = function ( cytoscape ) {
 	Layout.prototype.stop = function () {
 		this.trigger( 'layoutstop' );
 
+		return this; // chaining
+	};
+
+	Layout.prototype.addEnergyFunction = function ( name, fn ) {
+		this.options.customEnergyFunction[ name ] = fn;
 		return this; // chaining
 	};
 
@@ -550,6 +556,8 @@ module.exports = function get( cytoscape ) {
 			},
 		};
 
+		EnergyFunctions = _extend( EnergyFunctions, options.customEnergyFunction );
+
 		return SimulatedAnnealing( {
 			initialTemperature: options.SAInitialTemperature,
 			temperatureDecreaseRate: options.SATemperatureDecreaseRate,
@@ -614,7 +622,7 @@ module.exports = function get( cytoscape ) {
 
 				for ( var i in EnergyFunctions ) {
 					if ( EnergyFunctions.hasOwnProperty( i ) ) {
-						// console.log(i, EnergyFunctions[i](state));
+						// console.log( i, EnergyFunctions[ i ]( state ) );
 						willComputeEnergyFunctions.push( EnergyFunctions[ i ]( state ) );
 					}
 				}
