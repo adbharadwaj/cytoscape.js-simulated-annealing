@@ -142,9 +142,12 @@ cy.ready( function () {
 	} );
 	cy.layout( {
 		name: 'cytoscape-simulated-annealing',
-		iterations: 20,
-		steps: 10,
+		iterations: 10,
+		animationDuration: 50,
+		steps: 30 * cy.nodes().length,
 		SAInitialTemperature: 100,
+		edgeCrossingsFactor: 20,
+		nodeDistanceFactor: 1,
 		onStep: function ( obj ) {
 			$( '#infoEnergy' ).html( obj.energy );
 			$( '#infoTemp' ).html( obj.temperature );

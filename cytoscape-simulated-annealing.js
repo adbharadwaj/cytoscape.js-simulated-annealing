@@ -165,7 +165,7 @@ var SALayout = function ( cytoscape ) {
 			*/
 		},
 		SAInitialTemperature: 1000, // Initial temperature
-		SATemperatureDecreaseRate: 0.99, // Rate at which temperature decreases
+		SATemperatureDecreaseRate: 0.75, // Rate at which temperature decreases
 		nodeDistanceFactor: 0.1, // Node distance factor used to compute node distance cost.
 		borderDistanceFactor: 0.1, // Border distance factor used to compute border distance cost.
 		edgeLengthFactor: 0.5, // Edge length factor used to compute edge length cost.
