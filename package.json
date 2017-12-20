@@ -1,0 +1,23 @@
+{
+  "name": "cytoscape.js-simulated-annealing",
+  "version": "1.0.0",
+  "description": "Simulated Annealing layout extension for Cytoscape.js",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cytoscape.js"
+  ],
+  "author": "Aditya Bharadwaj",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.0",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
