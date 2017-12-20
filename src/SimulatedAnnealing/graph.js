@@ -113,14 +113,14 @@
 			return result;
 		}
 
-		var _areEdgesCrossing = function ( edge1, edge2 ) {
+		var _areEdgesCrossing = function ( src1, tgt1, src2, tgt2 ) {
 
-			var src1 = edge1.sourceEndpoint();
-			var src2 = edge2.sourceEndpoint();
-			var tgt1 = edge1.targetEndpoint();
-			var tgt2 = edge2.targetEndpoint();
+			if ( src1.id() == src2.id() || src1.id() == tgt2.id() || tgt1.id() == src2.id() || tgt1.id() == tgt2.id() )
+				// They share a node.
+				return false;
 
-			var result = _lineIntersection( src1.x, src1.y, tgt1.x, tgt1.y, src2.x, src2.y, tgt2.x, tgt2.y )
+			var result = _lineIntersection( src1.position( 'x' ), src1.position( 'y' ), tgt1.position( 'x' ), tgt1.position( 'y' ),
+				src2.position( 'x' ), src2.position( 'y' ), tgt2.position( 'x' ), tgt2.position( 'y' ) )
 
 			return !!( result && result.x && result.y && result.onLine1 && result.onLine2 );
 		};
@@ -159,7 +159,7 @@
 							// Nodes repel edges
 							var dist = [ options.boundingBox.x2 - node.position( 'x' ), options.boundingBox.y2 - node.position( 'y' ), node.position( 'x' ) - options.boundingBox.x1, node.position( 'y' ) - options.boundingBox.y1 ];
 							for ( var distIndex = 0; distIndex < 4; distIndex++ ) {
-								cost += 1 / dist[ distIndex ];
+								cost += 1 / ( dist[ distIndex ] );
 							}
 						} else {
 							// If one is offscreen, cost is awful.
@@ -185,11 +185,15 @@
 				var willComputeEdgeLength = [];
 
 				cy.nodes().each( function ( node1 ) {
-					node1.neighborhood().nodes().each( function ( node2 ) {
-						willComputeEdgeLength.push( new Promise( function ( resolve, reject ) {
-							var distance = _distance( node1, node2 );
-							resolve( options.edgeLengthFactor * distance );
-						} ) );
+					cy.edges().each( function ( edge ) {
+						if ( edge.data( 'source' ) == node1.id() || edge.data( 'target' ) == node1.id() ) {
+							var node2 = edge.data( 'source' ) == node1.id() ? cy.nodes( '#' + edge.data( 'target' ) ) : cy.nodes( '#' + edge.data( 'source' ) );
+							willComputeEdgeLength.push( new Promise( function ( resolve, reject ) {
+								var distance = _distance( node1, node2 );
+								resolve( options.edgeLengthFactor * distance );
+							} ) );
+						}
+
 					} );
 				} );
 
@@ -235,32 +239,32 @@
 				 * Otherwise, it will compute edge crossings for current node (_currentNode) only.
 				 */
 
-				var edgeCrossing = function ( edge1, edge2 ) {
+				var edgeCrossing = function ( src1, tgt1, src2, tgt2 ) {
+
 					return new Promise( function ( resolve, reject ) {
-
-						if ( !_edgeCrossingsTemp.data.hasOwnProperty( edge1.id() ) ) {
-							_edgeCrossingsTemp.data[ edge1.id() ] = {}
+						var edge1ID = src1.id() + tgt1.id();
+						var edge2ID = src2.id() + tgt2.id();
+						if ( !_edgeCrossingsTemp.data.hasOwnProperty( edge1ID ) ) {
+							_edgeCrossingsTemp.data[ edge1ID ] = {}
 						}
 
-						if ( !_edgeCrossingsTemp.data.hasOwnProperty( edge2.id() ) ) {
-							_edgeCrossingsTemp.data[ edge2.id() ] = {}
+						if ( !_edgeCrossingsTemp.data.hasOwnProperty( edge2ID ) ) {
+							_edgeCrossingsTemp.data[ edge2ID ] = {}
 						}
 
-						if ( !_edgeCrossingsTemp.data[ edge2.id() ].hasOwnProperty( edge1.id() ) ) {
-							_edgeCrossingsTemp.data[ edge2.id() ][ edge1.id() ] = 0
+						if ( !_edgeCrossingsTemp.data[ edge2ID ].hasOwnProperty( edge1ID ) ) {
+							_edgeCrossingsTemp.data[ edge2ID ][ edge1ID ] = 0
 						}
 
-						if ( !_edgeCrossingsTemp.data[ edge1.id() ].hasOwnProperty( edge2.id() ) ) {
-							_edgeCrossingsTemp.data[ edge1.id() ][ edge2.id() ] = 0
+						if ( !_edgeCrossingsTemp.data[ edge1ID ].hasOwnProperty( edge2ID ) ) {
+							_edgeCrossingsTemp.data[ edge1ID ][ edge2ID ] = 0
 						}
 
-						var bool = _areEdgesCrossing( edge1, edge2 ) ? 1 : 0;
-						// console.log( bool, edge1.id(), edge2.id() );
+						var bool = _areEdgesCrossing( src1, tgt1, src2, tgt2 ) ? 1 : 0;
 
-						_edgeCrossingsTemp.energy = _edgeCrossingsTemp.energy - options.edgeCrossingsFactor * ( _edgeCrossingsTemp.data[ edge2.id() ][ edge1.id() ] - bool );
-
-						_edgeCrossingsTemp.data[ edge1.id() ][ edge2.id() ] = bool;
-						_edgeCrossingsTemp.data[ edge2.id() ][ edge1.id() ] = bool;
+						_edgeCrossingsTemp.energy = _edgeCrossingsTemp.energy - options.edgeCrossingsFactor * ( _edgeCrossingsTemp.data[ edge2ID ][ edge1ID ] - bool );
+						_edgeCrossingsTemp.data[ edge1ID ][ edge2ID ] = bool;
+						_edgeCrossingsTemp.data[ edge2ID ][ edge1ID ] = bool;
 
 						resolve();
 					} );
@@ -274,20 +278,20 @@
 					};
 				}
 
-				// Select edges to compute edge crossings on
-				var selectedEdges = flush || !_currentNode ? cy.edges() : _currentNode.edgesWith( cy.nodes() );
 				var edges = cy.edges();
-
 				var willComputeEdgeCrossings = [];
-				for ( var i = 0; i < selectedEdges.length; i++ ) {
+				for ( var i = 0; i < edges.length; i++ ) {
 					for ( var j = 0; j < edges.length; j++ ) {
-						if ( selectedEdges[ i ].id() !== edges[ j ].id() ) {
-							willComputeEdgeCrossings.push( edgeCrossing( selectedEdges[ i ], edges[ j ] ) );
+						if ( edges[ i ].id() !== edges[ j ].id() &&
+							( !_currentNode || edges[ i ].data( 'source' ) === _currentNode.id() || edges[ i ].data( 'source' ) === _currentNode.id() )
+						) {
+							willComputeEdgeCrossings.push( edgeCrossing( cy.nodes( '#' + edges[ i ].data( 'source' ) ), cy.nodes( '#' + edges[ i ].data( 'target' ) ),
+								cy.nodes( '#' + edges[ j ].data( 'source' ) ), cy.nodes( '#' + edges[ j ].data( 'target' ) ) ) );
 						}
 					}
 				}
+
 				return Promise.all( willComputeEdgeCrossings ).then( function () {
-					// console.log( _edgeCrossingsTemp.energy );
 					return _edgeCrossingsTemp.energy;
 				} );
 			},
@@ -400,7 +404,6 @@
 				} );
 				return Promise.resolve();
 			}
-
 		} );
 	};
 } )();

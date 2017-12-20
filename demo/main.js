@@ -135,20 +135,24 @@ var cy = cytoscape( {
 	elements: elesJson,
 } );
 
+var layout;
 cy.ready( function () {
 	cy.pan( {
 		x: 0,
 		y: 0
 	} );
-	cy.layout( {
+	layout = cy.layout( {
 		name: 'cytoscape-simulated-annealing',
 		iterations: 10,
 		animationDuration: 10,
-		steps: 300 * cy.nodes().length,
+		steps: 30 * cy.nodes().length,
 		// steps: 10,
 		SAInitialTemperature: 100,
-		edgeCrossingsFactor: 10000,
-		edgeLengthFactor: 5,
+		edgeCrossingsFactor: 1000,
+		nodeDistanceFactor: 2,
+		borderDistanceFactor: 1,
+		edgeLengthFactor: 0.5,
+		nodeEdgeDistanceFactor: 0.1,
 		// nodeDistanceFactor: 1,
 		onStep: function ( obj ) {
 			$( '#infoEnergy' ).html( obj.energy );
@@ -158,6 +162,7 @@ cy.ready( function () {
 			// console.log(obj);
 		}
 	} ).addEnergyFunction( 'myCost', function ( cy ) {
-		return Promise.resolve( 10 );
+		return Promise.resolve( 0 );
 	} ).run()
+
 } );
