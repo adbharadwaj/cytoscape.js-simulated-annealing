@@ -1,5 +1,5 @@
 {
-  "name": "cytoscape.js-simulated-annealing",
+  "name": "cytoscape-simulated-annealing",
   "version": "1.0.0",
   "description": "Simulated Annealing layout extension for Cytoscape.js",
   "main": "index.js",
@@ -13,11 +13,9 @@
   ],
   "author": "Aditya Bharadwaj",
   "license": "MIT",
-  "dependencies": {
-    "async": "^2.6.0",
-    "lodash": "^4.17.4"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "async": "^2.6.0",
     "webpack": "^3.10.0"
   }
 }

@@ -1,7 +1,5 @@
 'use strict';
 
-var _ = require( 'lodash' );
-var async = require( 'async' );
 var SimulatedAnnealing = require( './SimulatedAnnealing/graph.js' );
 // registers the extension on a cytoscape lib ref
 

@@ -6,7 +6,7 @@
 	var getLayout = require( './layout.js' );
 	var register = function ( cytoscape ) {
 		var Layout = getLayout( cytoscape );
-		cytoscape( 'layout', 'cytoscape.js-simulated-annealing', Layout );
+		cytoscape( 'layout', 'cytoscape-simulated-annealing', Layout );
 	};
 
 	if ( typeof module !== 'undefined' && module.exports ) { // expose as a commonjs module
@@ -14,7 +14,7 @@
 	}
 
 	if ( typeof define !== 'undefined' && define.amd ) { // expose as an amd/requirejs module
-		define( 'cytoscape.js-simulated-annealing', function () {
+		define( 'cytoscape-simulated-annealing', function () {
 			return register;
 		} );
 	}
