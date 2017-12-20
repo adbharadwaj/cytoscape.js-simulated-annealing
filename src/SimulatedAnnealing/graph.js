@@ -254,7 +254,8 @@
 							_edgeCrossingsTemp.data[ edge1.id() ][ edge2.id() ] = 0
 						}
 
-						var bool = _areEdgesCrossing( edge1, edge2 );
+						var bool = _areEdgesCrossing( edge1, edge2 ) ? 1 : 0;
+						// console.log( bool, edge1.id(), edge2.id() );
 
 						_edgeCrossingsTemp.energy = _edgeCrossingsTemp.energy - options.edgeCrossingsFactor * ( _edgeCrossingsTemp.data[ edge2.id() ][ edge1.id() ] - bool );
 
@@ -286,6 +287,7 @@
 					}
 				}
 				return Promise.all( willComputeEdgeCrossings ).then( function () {
+					// console.log( _edgeCrossingsTemp.energy );
 					return _edgeCrossingsTemp.energy;
 				} );
 			},
