@@ -292,6 +292,7 @@
 		return SimulatedAnnealing({
 			initialTemperature: options.SAInitialTemperature,
 			temperatureDecreaseRate: options.SATemperatureDecreaseRate,
+			onStep: options.onStep,
 			getInitialState: function () {
 				layout = cy.layout({
 					name: 'random',

@@ -26,6 +26,9 @@ var SALayout = function (cytoscape) {
 		// 	w: 400,
 		// 	h: 300
 		// },
+		onStep:  function (obj) {
+            // do nothing
+        },
 		zoom: 1,
         animationDuration: 200,
 		fit: false, // If set to true will move every node even if you move one node, because it is trying to fit the graph.

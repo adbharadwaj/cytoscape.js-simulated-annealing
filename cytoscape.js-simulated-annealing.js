@@ -385,6 +385,9 @@ var SALayout = function (cytoscape) {
 		// 	w: 400,
 		// 	h: 300
 		// },
+		onStep:  function (obj) {
+            // do nothing
+        },
 		zoom: 1,
         animationDuration: 200,
 		fit: false, // If set to true will move every node even if you move one node, because it is trying to fit the graph.
@@ -23703,6 +23706,7 @@ exports.clearImmediate = clearImmediate;
 		return SimulatedAnnealing({
 			initialTemperature: options.SAInitialTemperature,
 			temperatureDecreaseRate: options.SATemperatureDecreaseRate,
+			onStep: options.onStep,
 			getInitialState: function () {
 				layout = cy.layout({
 					name: 'random',
@@ -23889,7 +23893,7 @@ exports.clearImmediate = clearImmediate;
 
                 var C = Math.exp(-delta / (temperature*10000));
                 var R = Math.random();
-                
+
                 return R < C;
             },
             discardChange : function (currentState, nextState) {
@@ -23898,6 +23902,9 @@ exports.clearImmediate = clearImmediate;
             acceptChange : function (currentState, newState) {
                 _currentState = _clone(newState);
                 return Promise.resolve();
+            },
+            onStep:  function (obj) {
+                console.log(obj);
             }
         };
 
@@ -23949,7 +23956,7 @@ exports.clearImmediate = clearImmediate;
             simulate: function () {
                 var sa = this;
                 return sa.doStep().then(function () {
-                    console.log(sa.getCurrentObject());
+                    config.onStep(sa.getCurrentObject());
                     if (!config.terminatingCondition(_currentState, _currentTemperature)) {
                         return sa.simulate();
                     } else {

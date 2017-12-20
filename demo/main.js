@@ -58,5 +58,13 @@ cy.ready(function () {
         x: 0,
         y: 0
     });
-    cy.layout({ name: 'cytoscape.js-simulated-annealing'}).run()
+    cy.layout({
+        name: 'cytoscape.js-simulated-annealing',
+        onStep:  function (obj) {
+            $('#infoEnergy').html(obj.energy);
+            $('#infoTemp').html(obj.temperature);
+            $('#infoSteps').html(obj.steps);
+            // console.log(obj);
+        }
+    }).run()
 });

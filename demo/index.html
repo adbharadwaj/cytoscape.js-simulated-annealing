@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Demo</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <style>
-        body {
-            font: 14px helvetica neue, helvetica, arial, sans-serif;
-        }
 
-        #cy {
-            margin: 10px;
-            height: 600px;
-            width: 1000px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            background-color: #FAEDEF;
-        }
-    </style>
-    <script src="../bower_components/cytoscape/dist/cytoscape.js"></script>
-    <!-- <script src="../cytoscape.js-simulated-annealing.js"></script> -->
-    <script src="../cytoscape.js-simulated-annealing.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+  <style>
+    body {
+      font: 14px helvetica neue, helvetica, arial, sans-serif;
+    }
+
+    #cy {
+      margin: 10px;
+      height: 600px;
+      width: 1000px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #FAEDEF;
+    }
+
+    #info {
+        margin: 10px;
+        width: 400px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+  </style>
+  <script src="../bower_components/cytoscape/dist/cytoscape.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../cytoscape.js-simulated-annealing.js"></script>
 </head>
+
 <body>
-<div id="cy"></div>
-<script src="main.js"></script>
+  <div id="cy"></div>
+  <div id="info">
+    <table style="width:100%; text-align: left;">
+      <tr>
+        <th>Energy</th>
+        <td id="infoEnergy"></td>
+      </tr>
+      <tr>
+        <th>Temperature</th>
+        <td id="infoTemp"></td>
+      </tr>
+      <tr>
+        <th>Steps</th>
+        <td id="infoSteps"></td>
+      </tr>
+    </table>
+  </div>
+  <script src="main.js"></script>
 </body>
+
 </html>
