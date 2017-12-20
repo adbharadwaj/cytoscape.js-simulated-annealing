@@ -23654,7 +23654,7 @@ exports.clearImmediate = clearImmediate;
 					return Promise.resolve( values.reduce( getSum ) );
 				} );
 			},
-			nodeEdgeDistance: function ( positions ) {
+			nodeEdgeDistance: function ( cy ) {
 				// TODO: implement caching
 				if ( !options.nodeEdgeDistanceFactor ) {
 					return Promise.resolve( 0 );
@@ -23664,9 +23664,9 @@ exports.clearImmediate = clearImmediate;
 
 				cy.nodes().each( function ( node1 ) {
 					cy.edges().each( function ( edge ) {
-						if ( edge.source().id() !== node1.id() && edge.target().id() !== node1.id() ) {
+						if ( edge.data( 'source' ) !== node1.id() && edge.data( 'target' ) !== node1.id() ) {
 							willComputeNodeEdgeDistances.push( new Promise( function ( resolve, reject ) {
-								var t = _distancePointToSegment( node1, edge.source(), edge.target() )
+								var t = _distancePointToSegment( node1, cy.nodes( '#' + edge.data( 'source' ) ), cy.nodes( '#' + edge.data( 'target' ) ) )
 								resolve( options.nodeEdgeDistanceFactor / ( t / _area ) );
 							} ) );
 						}
