@@ -28,10 +28,34 @@
         top: 0;
     }
   </style>
+  <script src="cytoscape.min.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="cytoscape-simulated-annealing.js"></script>
 </head>
 
 <body>
   <div id="cy"></div>
+  <div id="info">
+    <table style="width:100%; text-align: left;">
+      <tr>
+        <th>Energy</th>
+        <td id="infoEnergy"></td>
+      </tr>
+      <tr>
+        <th>Temperature</th>
+        <td id="infoTemp"></td>
+      </tr>
+      <tr>
+        <th>Steps</th>
+        <td id="infoSteps"></td>
+      </tr>
+      <tr>
+        <th>Iterations</th>
+        <td id="infoIterations"></td>
+      </tr>
+    </table>
+  </div>
+  <script src="main.js"></script>
 </body>
 
 </html>
