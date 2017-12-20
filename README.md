@@ -1,5 +1,5 @@
 # cytoscape.js-simulated-annealing
-Simulated Annealing layout extension for Cytoscape.js
+Simulated Annealing layout extension for Cytoscape.js ([demo](https://adbharadwaj.github.io/cytoscape.js-simulated-annealing/))
 
 
 ## Dependencies
