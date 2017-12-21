@@ -148,7 +148,7 @@ cy.ready( function () {
 		steps: 30 * cy.nodes().length,
 		// steps: 10,
 		SAInitialTemperature: 100,
-		edgeCrossingsFactor: 1000,
+		edgeCrossingsFactor: 10000,
 		nodeDistanceFactor: 2,
 		borderDistanceFactor: 1,
 		edgeLengthFactor: 0.5,

@@ -211,10 +211,9 @@ var cy = cytoscape( {
 			'text-opacity': 0
 		} ),
 
-	elements: elesJson,
+	elements: elesJson
 } );
 
-var layout;
 var bb;
 cy.ready( function () {
 	cy.pan( {
@@ -234,19 +233,32 @@ cy.ready( function () {
 	if ( bb.h === undefined ) {
 		bb.h = bb.y2 - bb.y1;
 	}
+} );
 
-	layout = cy.layout( {
+var options = {
+	SAInitialTemperature: parseFloat( $( '#SAInitialTemperature' ).val() ),
+	edgeCrossingsFactor: parseFloat( $( '#edgeCrossingsFactor' ).val() ),
+	nodeDistanceFactor: parseFloat( $( '#nodeDistanceFactor' ).val() ),
+	borderDistanceFactor: parseFloat( $( '#borderDistanceFactor' ).val() ),
+	edgeLengthFactor: parseFloat( $( '#edgeLengthFactor' ).val() ),
+	nodeEdgeDistanceFactor: parseFloat( $( '#nodeEdgeDistanceFactor' ).val() ),
+	triangleTopRectangleBottomFactor: parseFloat( $( '#triangleTopRectangleBottomFactor' ).val() )
+}
+
+$( '#runBtn' ).click( function () {
+	console.log( options );
+	cy.layout( {
 		name: 'cytoscape-simulated-annealing',
 		iterations: 10,
 		animationDuration: 10,
 		steps: 30 * cy.nodes().length,
 		// steps: 10,
-		SAInitialTemperature: 10000,
-		edgeCrossingsFactor: 2000,
-		nodeDistanceFactor: 20,
-		borderDistanceFactor: 100,
-		edgeLengthFactor: 2,
-		nodeEdgeDistanceFactor: 2,
+		SAInitialTemperature: options.SAInitialTemperature,
+		edgeCrossingsFactor: options.edgeCrossingsFactor,
+		nodeDistanceFactor: options.nodeDistanceFactor,
+		borderDistanceFactor: options.borderDistanceFactor,
+		edgeLengthFactor: options.edgeLengthFactor,
+		nodeEdgeDistanceFactor: options.nodeEdgeDistanceFactor,
 		// nodeDistanceFactor: 1,
 		onStep: function ( obj ) {
 			$( '#infoEnergy' ).html( obj.energy );
@@ -274,7 +286,7 @@ cy.ready( function () {
 						// If one is offscreen, cost is awful.
 						cost = 100000000;
 					}
-					resolve( cost * 10 );
+					resolve( cost * options.nodeEdgeDistanceFactor );
 				} ) )
 			}
 		} );
@@ -303,7 +315,7 @@ cy.ready( function () {
 						// If one is offscreen, cost is awful.
 						cost = 100000000;
 					}
-					resolve( cost * 10 );
+					resolve( cost * options.nodeEdgeDistanceFactor );
 				} ) )
 			}
 		} );
@@ -315,6 +327,5 @@ cy.ready( function () {
 		return Promise.all( willComputeRectToBottomBorderDistance ).then( function ( values ) {
 			return Promise.resolve( values.reduce( getSum ) );
 		} );
-	} ).run()
-
-} );
+	} ).run();
+} )

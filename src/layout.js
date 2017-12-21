@@ -53,11 +53,11 @@ var SALayout = function ( cytoscape ) {
 		},
 		SAInitialTemperature: 1000, // Initial temperature
 		SATemperatureDecreaseRate: 0.75, // Rate at which temperature decreases
-		nodeDistanceFactor: 0.1, // Node distance factor used to compute node distance cost.
-		borderDistanceFactor: 0.1, // Border distance factor used to compute border distance cost.
+		nodeDistanceFactor: 2, // Node distance factor used to compute node distance cost.
+		borderDistanceFactor: 1, // Border distance factor used to compute border distance cost.
 		edgeLengthFactor: 0.5, // Edge length factor used to compute edge length cost.
 		nodeEdgeDistanceFactor: 0.1, // Node Edge distance factor used to compute node edge distance cost.
-		edgeCrossingsFactor: 10, // Edge crossings factor used to compute edge crossings cost.
+		edgeCrossingsFactor: 1000, // Edge crossings factor used to compute edge crossings cost.
 		iterations: 2, // Number of simulated annealing iterations
 		steps: 20, // Number of steps per iterations.
 		customEnergyFunction: {} // Contains the custom energy functions defined by the user.

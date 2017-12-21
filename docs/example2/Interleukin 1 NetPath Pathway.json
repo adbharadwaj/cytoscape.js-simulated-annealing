@@ -1,0 +1,1465 @@
+{
+    "format_version": "1.0",
+    "generated_by": "graphspace-2.0.0",
+    "target_cytoscapejs_version": "~2.7",
+    "style": [
+        {
+            "selector": "node[name='NFKBIB']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "rectangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "NFKBIB",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='NFKBIA']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "rectangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "NFKBIA",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IKBKB']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "rectangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IKBKB",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IKBKAP']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IKBKAP",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IKBKG']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "rectangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IKBKG",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IL1A']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IL1A",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IL1B']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IL1B",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IL1R2']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "triangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IL1R2",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IL1R1']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "triangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IL1R1",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='PELI1']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "PELI1",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='TRAF6']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "TRAF6",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='PELI2']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "PELI2",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='MAP3K2']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "MAP3K2",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='MAP3K3']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "MAP3K3",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='MAP3K7']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "MAP3K7",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='DOK1']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "DOK1",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='PIK3R2']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "PIK3R2",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='PIK3R1']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "PIK3R1",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IRAK2']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IRAK2",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IRAK3']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IRAK3",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='RELA']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "rectangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "RELA",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IRAK1']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IRAK1",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IRAK4']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IRAK4",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='SIRPA']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "SIRPA",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IL1RN']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IL1RN",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='CHUK']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "CHUK",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='PRKCZ']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "PRKCZ",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='ECSIT']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "ECSIT",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='IL1RAP']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "triangle",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "IL1RAP",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='SQSTM1']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "SQSTM1",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='MYD88']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "MYD88",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='TOLLIP']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "TOLLIP",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='TAB3']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "TAB3",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='TAB2']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "TAB2",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='TAB1']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "TAB1",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='MAP3K14']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "MAP3K14",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "node[name='PTPN11']",
+            "style": {
+                "text-outline-color": "#D8D8D8",
+                "text-outline-width": "4px",
+                "border-color": "#D8D8D8",
+                "border-width": "2px",
+                "height": "45px",
+                "width": "45px",
+                "shape": "ellipse",
+                "border-style": "solid",
+                "text-wrap": "wrap",
+                "text-halign": "center",
+                "label": "PTPN11",
+                "text-valign": "center",
+                "background-color": "#D8D8D8"
+            }
+        },
+        {
+            "selector": "edge[name='NFKBIB-MAP3K3']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='NFKBIA-RELA']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IKBKB-RELA']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IKBKB-DOK1']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IL1A-IL1R1']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IL1A-IL1R2']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IL1A-IRAK4']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IL1A-IL1RAP']",
+            "style": {
+                "line-color": "brown",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "brown"
+            }
+        },
+        {
+            "selector": "edge[name='IL1B-IL1R1']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IL1B-IL1RAP']",
+            "style": {
+                "line-color": "brown",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "brown"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R2-IL1RAP']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R1-IL1RN']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R1-MYD88']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R1-TRAF6']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R1-PIK3R1']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R1-IL1RAP']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R1-IRAK1']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IL1R1-IRAK4']",
+            "style": {
+                "line-color": "brown",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "brown"
+            }
+        },
+        {
+            "selector": "edge[name='PELI1-IRAK4']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='PELI1-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='TRAF6-TAB2']",
+            "style": {
+                "line-color": "#2A69DC",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#2A69DC"
+            }
+        },
+        {
+            "selector": "edge[name='TRAF6-MAP3K7']",
+            "style": {
+                "line-color": "#2A69DC",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#2A69DC"
+            }
+        },
+        {
+            "selector": "edge[name='MAP3K3-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='MAP3K7-TAB2']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='MAP3K7-TAB1']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='MAP3K7-MAP3K14']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='MAP3K7-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='MAP3K7-MAP3K3']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='PIK3R2-IL1R1']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='PIK3R2-PIK3R1']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK2-MYD88']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK3-IRAK3']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='RELA-NFKBIB']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='RELA-MAP3K2']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-SQSTM1']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-IRAK1']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-PELI1']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-TOLLIP']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-TRAF6']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-PELI2']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-TAB1']",
+            "style": {
+                "line-color": "grey",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "grey"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-IL1RAP']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-IRAK3']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-MYD88']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK1-IRAK4']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IRAK4-IRAK1']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='SIRPA-PTPN11']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='IL1RN-IL1R2']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-MAP3K2']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-TAB2']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-NFKBIA']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-MAP3K7']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-NFKBIB']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-IKBKAP']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-IKBKG']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='CHUK-MAP3K3']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='PRKCZ-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='ECSIT-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='MYD88-IL1RAP']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='TOLLIP-IL1RAP']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='TAB3-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='TAB2-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='TAB1-TAB2']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='TAB1-TRAF6']",
+            "style": {
+                "line-color": "#27AF47",
+                "target-arrow-shape": "none",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#27AF47"
+            }
+        },
+        {
+            "selector": "edge[name='MAP3K14-MAP3K14']",
+            "style": {
+                "line-color": "#F07406",
+                "target-arrow-shape": "triangle",
+                "target-arrow-fill": "filled",
+                "width": "1.5px",
+                "curve-style": "bezier",
+                "line-style": "solid",
+                "target-arrow-color": "#F07406"
+            }
+        }
+    ]
+}

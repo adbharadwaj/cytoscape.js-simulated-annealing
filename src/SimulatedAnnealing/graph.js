@@ -363,11 +363,11 @@
 
 				for ( var i in EnergyFunctions ) {
 					if ( EnergyFunctions.hasOwnProperty( i ) ) {
-						// console.log( i, EnergyFunctions[ i ]( state ) );
 						willComputeEnergyFunctions.push( EnergyFunctions[ i ]( state ) );
 					}
 				}
 				return Promise.all( willComputeEnergyFunctions ).then( function ( values ) {
+					// console.log( values );
 					return Promise.resolve( values.reduce( getSum ) );
 				} );
 
