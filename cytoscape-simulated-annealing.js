@@ -536,20 +536,16 @@ module.exports = function get( cytoscape ) {
 
 				};
 
-				if ( flush ) {
-					_edgeCrossingsTemp = {
-						energy: 0,
-						data: {}
-					};
-				}
+				_edgeCrossingsTemp = {
+					energy: 0,
+					data: {}
+				};
 
 				var edges = cy.edges();
 				var willComputeEdgeCrossings = [];
 				for ( var i = 0; i < edges.length; i++ ) {
 					for ( var j = 0; j < edges.length; j++ ) {
-						if ( edges[ i ].id() !== edges[ j ].id() &&
-							( !_currentNode || edges[ i ].data( 'source' ) === _currentNode.id() || edges[ i ].data( 'source' ) === _currentNode.id() )
-						) {
+						if ( edges[ i ].id() !== edges[ j ].id() ) {
 							willComputeEdgeCrossings.push( edgeCrossing( cy.nodes( '#' + edges[ i ].data( 'source' ) ), cy.nodes( '#' + edges[ i ].data( 'target' ) ),
 								cy.nodes( '#' + edges[ j ].data( 'source' ) ), cy.nodes( '#' + edges[ j ].data( 'target' ) ) ) );
 						}
