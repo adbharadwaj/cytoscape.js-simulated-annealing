@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+  <style>
+    body {
+      font: 14px helvetica neue, helvetica, arial, sans-serif;
+    }
+
+    #cy {
+      margin: 10px;
+      height: 600px;
+      width: 1000px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #FAEDEF;
+    }
+
+    #info {
+        margin: 10px;
+        width: 400px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+  </style>
+  <script src="../cytoscape.min.js"></script>
+  <script src="../jquery.min.js"></script>
+  <script src="../cytoscape-simulated-annealing.js"></script>
+</head>
+
+<body>
+  <div id="cy"></div>
+  <div id="info">
+    <table style="width:100%; text-align: left;">
+      <tr>
+        <th>Energy</th>
+        <td id="infoEnergy"></td>
+      </tr>
+      <tr>
+        <th>Temperature</th>
+        <td id="infoTemp"></td>
+      </tr>
+      <tr>
+        <th>Steps</th>
+        <td id="infoSteps"></td>
+      </tr>
+      <tr>
+        <th>Iterations</th>
+        <td id="infoIterations"></td>
+      </tr>
+    </table>
+    <br>
+    <table style="width:100%; text-align: left;">
+      <tr>
+        <th>SAInitialTemperature</th>
+        <td>
+            <input type="number" id="SAInitialTemperature" value=10000>
+        </td>
+      </tr>
+      <tr>
+        <th>edgeCrossingsFactor</th>
+        <td>
+            <input type="number" id="edgeCrossingsFactor" value=10000>
+        </td>
+      </tr>
+      <tr>
+        <th>nodeDistanceFactor</th>
+        <td>
+            <input type="number" id="nodeDistanceFactor" value=20>
+        </td>
+      </tr>
+      <tr>
+        <th>borderDistanceFactor</th>
+        <td>
+            <input type="number" id="borderDistanceFactor" value=100>
+        </td>
+      </tr>
+      <tr>
+        <th>edgeLengthFactor</th>
+        <td>
+            <input type="number" id="edgeLengthFactor" value=2>
+        </td>
+      </tr>
+      <tr>
+        <th>nodeEdgeDistanceFactor</th>
+        <td>
+            <input type="number" id="nodeEdgeDistanceFactor" value=2>
+        </td>
+      </tr>
+      <tr>
+        <th>triangleTopRectangleBottomFactor</th>
+        <td>
+            <input type="number" id="triangleTopRectangleBottomFactor" value=10>
+        </td>
+      </tr>
+      <tr>
+        <th>sameShapeDistanceFactor</th>
+        <td>
+            <input type="number" id="sameShapeDistanceFactor" value=100000>
+        </td>
+      </tr>
+      <tr>
+        <th>downwardPointingPathsFromTrianglesFactor</th>
+        <td>
+            <input type="number" id="downwardPointingPathsFromTrianglesFactor" value=10000>
+        </td>
+      </tr>
+    </table>
+
+    <button type="button" name="button" id="runBtn">Run</button>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
