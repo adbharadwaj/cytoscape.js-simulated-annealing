@@ -42,17 +42,18 @@ Promise.all( [
 		} );
 	} );
 
-var options = {
-	SAInitialTemperature: parseFloat( $( '#SAInitialTemperature' ).val() ),
-	edgeCrossingsFactor: parseFloat( $( '#edgeCrossingsFactor' ).val() ),
-	nodeDistanceFactor: parseFloat( $( '#nodeDistanceFactor' ).val() ),
-	borderDistanceFactor: parseFloat( $( '#borderDistanceFactor' ).val() ),
-	edgeLengthFactor: parseFloat( $( '#edgeLengthFactor' ).val() ),
-	nodeEdgeDistanceFactor: parseFloat( $( '#nodeEdgeDistanceFactor' ).val() ),
-	triangleTopRectangleBottomFactor: parseFloat( $( '#triangleTopRectangleBottomFactor' ).val() )
-}
+var options = {}
 
 $( '#runBtn' ).click( function () {
+	options = {
+		SAInitialTemperature: parseFloat( $( '#SAInitialTemperature' ).val() ),
+		edgeCrossingsFactor: parseFloat( $( '#edgeCrossingsFactor' ).val() ),
+		nodeDistanceFactor: parseFloat( $( '#nodeDistanceFactor' ).val() ),
+		borderDistanceFactor: parseFloat( $( '#borderDistanceFactor' ).val() ),
+		edgeLengthFactor: parseFloat( $( '#edgeLengthFactor' ).val() ),
+		nodeEdgeDistanceFactor: parseFloat( $( '#nodeEdgeDistanceFactor' ).val() ),
+		triangleTopRectangleBottomFactor: parseFloat( $( '#triangleTopRectangleBottomFactor' ).val() )
+	}
 	console.log( options );
 	cy.layout( {
 		name: 'cytoscape-simulated-annealing',
@@ -93,7 +94,7 @@ $( '#runBtn' ).click( function () {
 						// If one is offscreen, cost is awful.
 						cost = 100000000;
 					}
-					resolve( cost * options.nodeEdgeDistanceFactor );
+					resolve( cost * options.triangleTopRectangleBottomFactor );
 				} ) )
 			}
 		} );
@@ -122,7 +123,7 @@ $( '#runBtn' ).click( function () {
 						// If one is offscreen, cost is awful.
 						cost = 100000000;
 					}
-					resolve( cost * options.nodeEdgeDistanceFactor );
+					resolve( cost * options.triangleTopRectangleBottomFactor );
 				} ) )
 			}
 		} );
