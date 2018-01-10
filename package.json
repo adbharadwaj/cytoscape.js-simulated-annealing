@@ -1,34 +1,33 @@
 {
-	"name": "cytoscape-simulated-annealing",
-	"version": "1.0.0",
-	"description": "Simulated Annealing layout extension for Cytoscape.js",
-	"main": "cytoscape-simulated-annealing.js",
-	"scripts": {
-		"build": "webpack",
-		"watch": "webpack --watch",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [
-		"cytoscape",
-		"cytoscape-extension"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/adbharadwaj/cytoscape.js-simulated-annealing.git"
-	},
-	"bugs": {
-		"url": "https://github.com/adbharadwaj/cytoscape.js-simulated-annealing/issues"
-	},
-	"author": "Aditya Bharadwaj",
-	"author": {
-		"name": "Aditya Bharadwaj",
-		"email": "adb@vt.edu"
-	},
-	"homepage": "https://github.com/adbharadwaj/cytoscape.js-simulated-annealing",
-	"license": "MIT",
-	"dependencies": {},
-	"devDependencies": {
-		"async": "^2.6.0",
-		"webpack": "^3.10.0"
-	}
+  "name": "cytoscape-simulated-annealing",
+  "version": "1.0.1",
+  "description": "Simulated Annealing layout extension for Cytoscape.js",
+  "main": "cytoscape-simulated-annealing.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cytoscape",
+    "cytoscape-extension"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adbharadwaj/cytoscape.js-simulated-annealing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adbharadwaj/cytoscape.js-simulated-annealing/issues"
+  },
+  "author": {
+    "name": "Aditya Bharadwaj",
+    "email": "adb@vt.edu"
+  },
+  "homepage": "https://github.com/adbharadwaj/cytoscape.js-simulated-annealing",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "async": "^2.6.0",
+    "webpack": "^3.10.0"
+  }
 }
