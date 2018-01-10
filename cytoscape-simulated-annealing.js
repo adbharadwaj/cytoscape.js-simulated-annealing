@@ -392,6 +392,10 @@ module.exports = function get( cytoscape ) {
 
 		var EnergyFunctions = {
 			nodeDistance: function ( cy ) {
+				if ( !options.nodeDistanceFactor ) {
+					return Promise.resolve( 0 );
+				}
+
 				var willComputeNodeDistance = [];
 
 				var nodes = cy.nodes();
@@ -414,6 +418,10 @@ module.exports = function get( cytoscape ) {
 				} );
 			},
 			borderDistance: function ( cy ) {
+				if ( !options.borderDistanceFactor ) {
+					return Promise.resolve( 0 );
+				}
+
 				var willComputeBorderDistance = [];
 
 				cy.nodes().each( function ( node ) {
@@ -503,6 +511,10 @@ module.exports = function get( cytoscape ) {
 				 * If flush is set to True, function will compute edge crossings for all edges.
 				 * Otherwise, it will compute edge crossings for current node (_currentNode) only.
 				 */
+
+				if ( !options.edgeCrossingsFactor ) {
+					return Promise.resolve( 0 );
+				}
 
 				var edgeCrossing = function ( src1, tgt1, src2, tgt2 ) {
 
