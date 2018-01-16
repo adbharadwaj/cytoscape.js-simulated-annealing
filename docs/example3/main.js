@@ -97,18 +97,18 @@ var elesJson = {
 		},
 		{
 			data: {
-				id: 'de',
+				id: 'id',
 				weight: 7,
-				source: 'd',
-				target: 'e'
+				source: 'i',
+				target: 'd'
 			}
 		},
 		{
 			data: {
-				id: 'ef',
+				id: 'fe',
 				weight: 3,
-				source: 'e',
-				target: 'f'
+				source: 'f',
+				target: 'e'
 			}
 		},
 		{
@@ -121,10 +121,10 @@ var elesJson = {
 		},
 		{
 			data: {
-				id: 'ci',
+				id: 'ic',
 				weight: 3,
-				source: 'c',
-				target: 'i'
+				source: 'i',
+				target: 'c'
 			}
 		},
 		{
@@ -183,17 +183,18 @@ var cy = cytoscape( {
 	style: cytoscape.stylesheet()
 		.selector( 'node' )
 		.css( {
-			'background-color': '#B3767E',
-			'width': '10',
-			'height': '10',
+			'background-color': '#11479e',
+			// 'width': '10',
+			// 'height': '10',
+			'text-opacity': 0.5,
 			'content': 'data(id)',
 			'shape': 'data(shape)',
 		} )
 		.selector( 'edge' )
 		.css( {
 			'curve-style': 'bezier',
-			'line-color': '#F2B1BA',
-			'target-arrow-color': '#F2B1BA',
+			'line-color': '#9dbaea',
+			'target-arrow-color': '#9dbaea',
 			'width': 4,
 			'target-arrow-shape': 'triangle',
 			'opacity': 0.8
@@ -285,6 +286,7 @@ $( "#runBtn" ).click( function () {
 		triangleTopRectangleBottomFactor: parseFloat( $( '#triangleTopRectangleBottomFactor' ).val() ),
 		sameShapeDistanceFactor: parseFloat( $( '#sameShapeDistanceFactor' ).val() ),
 		downwardPointingPathsFromTrianglesFactor: parseFloat( $( '#downwardPointingPathsFromTrianglesFactor' ).val() ),
+		edgeSlopesFactor: parseFloat( $( '#edgeSlopesFactor' ).val() ),
 	}
 	layout = cy.layout( {
 		name: 'cytoscape-simulated-annealing',
@@ -292,12 +294,12 @@ $( "#runBtn" ).click( function () {
 		animationDuration: 10,
 		steps: 30 * cy.nodes().length,
 		// steps: 2,
-		// boundingBox: {
-		// 	x1: 0,
-		// 	y1: 0,
-		// 	w: 400,
-		// 	h: 200
-		// },
+		boundingBox: {
+			x1: 20,
+			y1: 20,
+			w: 800,
+			h: 500
+		},
 		// steps: 10,
 		SAInitialTemperature: options.SAInitialTemperature,
 		edgeCrossingsFactor: options.edgeCrossingsFactor,
@@ -313,6 +315,10 @@ $( "#runBtn" ).click( function () {
 			// console.log(obj);
 		}
 	} ).addEnergyFunction( 'triangleToTopBorderDistance', function ( state ) {
+		if ( !options.triangleTopRectangleBottomFactor ) {
+			return Promise.resolve( 0 );
+		}
+
 		var willComputeTriangleToTopBorderDistance = [];
 
 		state.nodes().each( function ( node ) {
@@ -343,6 +349,10 @@ $( "#runBtn" ).click( function () {
 			return Promise.resolve( values.reduce( getSum ) );
 		} );
 	} ).addEnergyFunction( 'rectToBottomBorderDistance', function ( state ) {
+		if ( !options.triangleTopRectangleBottomFactor ) {
+			return Promise.resolve( 0 );
+		}
+
 		var willComputeRectToBottomBorderDistance = [];
 
 		state.nodes().each( function ( node ) {
@@ -372,6 +382,10 @@ $( "#runBtn" ).click( function () {
 			return Promise.resolve( values.reduce( getSum ) );
 		} );
 	} ).addEnergyFunction( 'sameShapesTogether', function ( state ) {
+		if ( !options.sameShapeDistanceFactor ) {
+			return Promise.resolve( 0 );
+		}
+
 		var willComputeSameShapesDistance = [];
 
 		state.nodes().each( function ( node1 ) {
@@ -394,6 +408,10 @@ $( "#runBtn" ).click( function () {
 			return Promise.resolve( values.reduce( getSum ) );
 		} );
 	} ).addEnergyFunction( 'downwardPointingPathsFromTriangles', function ( state ) {
+		if ( !options.downwardPointingPathsFromTrianglesFactor ) {
+			return Promise.resolve( 0 );
+		}
+
 		var willComputeDownwardPointingPathsFromTriangles = [];
 		var isCorrectAngle = function ( edge ) {
 			return true;
@@ -439,8 +457,35 @@ $( "#runBtn" ).click( function () {
 		}
 
 		return Promise.all( willComputeDownwardPointingPathsFromTriangles ).then( function ( values ) {
-			// console.log( downwardPointingPathsFromTrianglesFactor * values.reduce( getSum ) );
-			return Promise.resolve( options.downwardPointingPathsFromTrianglesFactor * values.reduce( getSum ) );
+			// console.log( values.reduce( getSum ) );
+			return Promise.resolve( options.downwardPointingPathsFromTrianglesFactor / values.reduce( getSum ) );
 		} );
+	} ).addEnergyFunction( 'edgeSlopes', function ( state ) {
+		if ( !options.edgeSlopesFactor ) {
+			return Promise.resolve( 0 );
+		}
+
+		var willComputeEdgeSlopes = [];
+
+		state.edges().each( function ( edge ) {
+			willComputeEdgeSlopes.push( new Promise( function ( resolve, reject ) {
+				var source = state.nodes( '#' + edge.data( 'source' ) );
+				var target = state.nodes( '#' + edge.data( 'target' ) );
+				var deltaX = Math.abs( target.position( 'x' ) - source.position( 'x' ) );
+				var deltaY = Math.abs( target.position( 'y' ) - source.position( 'y' ) );
+				var slope = Math.atan( deltaY / deltaX );
+				// console.log( slope );
+				resolve( 1 / slope * options.edgeSlopesFactor );
+			} ) )
+		} );
+
+		function getSum( total, num ) {
+			return total + num;
+		}
+
+		return Promise.all( willComputeEdgeSlopes ).then( function ( values ) {
+			return Promise.resolve( values.reduce( getSum ) / cy.edges().length );
+		} );
+
 	} ).run();
 } );

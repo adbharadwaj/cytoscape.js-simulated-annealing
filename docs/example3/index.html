@@ -17,7 +17,8 @@
       position: absolute;
       left: 0;
       top: 0;
-      background-color: #FAEDEF;
+      background-color: #FFF;
+      border: 1px solid #EEE;
     }
 
     #info {
@@ -95,7 +96,7 @@
       <tr>
         <th>triangleTopRectangleBottomFactor</th>
         <td>
-            <input type="number" id="triangleTopRectangleBottomFactor" value=10>
+            <input type="number" id="triangleTopRectangleBottomFactor" value=1>
         </td>
       </tr>
       <tr>
@@ -107,7 +108,13 @@
       <tr>
         <th>downwardPointingPathsFromTrianglesFactor</th>
         <td>
-            <input type="number" id="downwardPointingPathsFromTrianglesFactor" value=10000>
+            <input type="number" id="downwardPointingPathsFromTrianglesFactor" value=500000>
+        </td>
+      </tr>
+      <tr>
+        <th>edgeSlopesFactor</th>
+        <td>
+            <input type="number" id="edgeSlopesFactor" value=5000>
         </td>
       </tr>
     </table>
