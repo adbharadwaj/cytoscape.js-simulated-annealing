@@ -96,7 +96,7 @@
       <tr>
         <th>triangleTopRectangleBottomFactor</th>
         <td>
-            <input type="number" id="triangleTopRectangleBottomFactor" value=1>
+            <input type="number" id="triangleTopRectangleBottomFactor" value=4>
         </td>
       </tr>
       <tr>
@@ -114,12 +114,17 @@
       <tr>
         <th>edgeSlopesFactor</th>
         <td>
-            <input type="number" id="edgeSlopesFactor" value=5000>
+            <input type="number" id="edgeSlopesFactor" value=10000>
         </td>
       </tr>
     </table>
 
     <button type="button" name="button" id="runBtn">Run</button>
+
+    <br>
+    <br>
+    <p>
+    <b>Note:</b> If you set a factor to 0 (zero), the library will not compute/include the corresponding energy function.</p>
   </div>
   <script src="main.js"></script>
 </body>

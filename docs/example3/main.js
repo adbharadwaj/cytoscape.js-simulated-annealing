@@ -472,8 +472,9 @@ $( "#runBtn" ).click( function () {
 				var source = state.nodes( '#' + edge.data( 'source' ) );
 				var target = state.nodes( '#' + edge.data( 'target' ) );
 				var deltaX = Math.abs( target.position( 'x' ) - source.position( 'x' ) );
-				var deltaY = Math.abs( target.position( 'y' ) - source.position( 'y' ) );
+				var deltaY = target.position( 'y' ) - source.position( 'y' );
 				var slope = Math.atan( deltaY / deltaX );
+				slope = slope > 0 ? slope : 0.1;
 				// console.log( slope );
 				resolve( 1 / slope * options.edgeSlopesFactor );
 			} ) )

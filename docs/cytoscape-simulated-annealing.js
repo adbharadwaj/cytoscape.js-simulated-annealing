@@ -688,7 +688,7 @@
 								}
 							}
 							return Promise.all( willComputeEnergyFunctions ).then( function ( values ) {
-								// console.log( values );
+								console.log( values );
 								return Promise.resolve( values.reduce( getSum ) );
 							} );
 
