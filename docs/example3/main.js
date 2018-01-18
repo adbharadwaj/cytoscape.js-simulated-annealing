@@ -214,20 +214,19 @@ var cy = cytoscape( {
 		} ),
 
 	elements: elesJson,
-	layout: {
-		name: "random",
-		fit: true
-	}
+	zoom: 1,
+	pan: {
+		x: 0,
+		y: 0
+	},
+	zoomingEnabled: false,
+	panningEnabled: false,
 } );
 
 var layout;
 var bb;
 
 cy.ready( function () {
-	cy.pan( {
-		x: 0,
-		y: 0
-	} );
 	bb = cy.extent();
 	if ( bb.x2 === undefined ) {
 		bb.x2 = bb.x1 + bb.w;
@@ -241,7 +240,6 @@ cy.ready( function () {
 	if ( bb.h === undefined ) {
 		bb.h = bb.y2 - bb.y1;
 	}
-
 } );
 
 var _distance = function ( node1, node2 ) {
